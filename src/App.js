@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import Longitude from "./components/Longitude";
+import Mass from "./components/Mass";
+import Litres from "./components/Litres";
+import Nav from "./components/Nav";
+import Home from "./components/Home";
+
+import "./App.css";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Router>
+        <Nav />
+        <div className="container p-5">
+          <Route path="/" exact component={Home} />
+          <Route path="/Longitude" component={Longitude} />
+          <Route path="/Mass" component={Mass} />
+          <Route path="/Litres" component={Litres} />
+        </div>
+      </Router>
+    </Fragment>
   );
 }
 
